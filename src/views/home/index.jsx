@@ -4,8 +4,8 @@ import { HomeWrapper } from "./style";
 import HomeBanner from "./c-cpns/home-banner/index";
 import { fetchHomeDateAtion } from "@/store/modules/home";
 import HomeSectionV1 from "./c-cpns/home-section-v1/index";
-import SectionHeader from "@/components/section-header/index";
-import SectionRooms from "@/components/section-roms/index";
+import HomeSectionV2 from "./c-cpns/home-section-v2/index";
+import { isEmptyObject } from "@/utils/is-empty-object";
 
 const Home = memo(() => {
   const dispatch = useDispatch();
@@ -28,17 +28,9 @@ const Home = memo(() => {
       <HomeBanner></HomeBanner>
 
       <div className="content">
-        <div className="discount-data" style={{ marginTop: "40px" }}>
-          <SectionHeader
-            title={disCountInfo.title}
-            subTitle={disCountInfo.subtitle}
-          ></SectionHeader>
-
-          <SectionRooms
-            itemWidth="33.333%"
-            roomList={disCountInfo?.dest_list?.["成都"]}
-          ></SectionRooms>
-        </div>
+        {isEmptyObject(disCountInfo) && (
+          <HomeSectionV2 infoData={disCountInfo}></HomeSectionV2>
+        )}
         <HomeSectionV1 infoData={goodPriceInfo}></HomeSectionV1>
         <HomeSectionV1 infoData={highScoreInfo}></HomeSectionV1>
       </div>

@@ -10,7 +10,7 @@ const SectionRomms = memo((props) => {
       {roomList.slice(0, 8)?.map((item) => {
         return (
           <RoomItem
-            key={item.id}
+            key={item.title}
             itemWidth={itemWidth}
             itemData={item}
           ></RoomItem>
@@ -22,6 +22,7 @@ const SectionRomms = memo((props) => {
 
 SectionRomms.propTypes = {
   roomList: PropTypes.array,
+  itemWidth: PropTypes.string
 };
 
 export default SectionRomms;
