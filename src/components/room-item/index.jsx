@@ -4,9 +4,12 @@ import { Rate } from "antd";
 import { RoomWrapper } from "./style";
 
 const RoomItem = memo((props) => {
-  const { itemData } = props;
+  const { itemData, itemWidth = "25%" } = props;
   return (
-    <RoomWrapper verifyInfo={itemData?.verifyInfo?.text_color || "#39576a"}>
+    <RoomWrapper
+      itemWidth={itemWidth}
+      verifyInfo={itemData?.verifyInfo?.text_color || "#39576a"}
+    >
       <div className="inner">
         <div className="cover">
           <img src={itemData.picture_url} alt="" />
@@ -24,7 +27,9 @@ const RoomItem = memo((props) => {
           ></Rate>
 
           <div className="count">{itemData.reviews_count}</div>
-          { itemData.bottom_info &&  <div className="extra"> · {itemData?.bottom_info?.content}</div>}
+          {itemData.bottom_info && (
+            <div className="extra"> · {itemData?.bottom_info?.content}</div>
+          )}
         </div>
       </div>
     </RoomWrapper>

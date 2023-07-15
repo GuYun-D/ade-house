@@ -13,3 +13,11 @@ export const getHomeHighScoreData = () => {
     url: "/home/highscore",
   });
 };
+
+
+// 获取折扣数据
+export const getHomeDiscountData = () => {
+  return request.get({
+    url: "/home/discount"
+  })
+}
