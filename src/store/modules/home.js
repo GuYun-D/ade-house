@@ -3,6 +3,7 @@ import {
   getHomeGoodPriceData,
   getHomeHighScoreData,
   getHomeDiscountData,
+  getHomeRecommendData,
 } from "@/service";
 
 export const fetchHomeDateAtion = createAsyncThunk(
@@ -19,6 +20,10 @@ export const fetchHomeDateAtion = createAsyncThunk(
     getHomeDiscountData().then((res) => {
       dispatch(changeDiscountInfoAction(res));
     });
+
+    getHomeRecommendData().then((res) => {
+      dispatch(changeHotrecommenddestInfoAction(res));
+    });
   }
 );
 
@@ -28,6 +33,7 @@ const homeSlice = createSlice({
     goodPriceInfo: {},
     highScoreInfo: {},
     disCountInfo: {},
+    hotrecommenddestInfo: {},
   },
 
   reducers: {
@@ -42,6 +48,10 @@ const homeSlice = createSlice({
     changeDiscountInfoAction(state, { payload }) {
       state.disCountInfo = payload;
     },
+
+    changeHotrecommenddestInfoAction(state, { payload }) {
+      state.hotrecommenddestInfo = payload;
+    },
   },
 });
 
@@ -49,5 +59,6 @@ export const {
   changeGoodsPriceInfoAction,
   changeHighScoreInfoAction,
   changeDiscountInfoAction,
+  changeHotrecommenddestInfoAction,
 } = homeSlice.actions;
 export default homeSlice.reducer;

@@ -21,3 +21,10 @@ export const getHomeDiscountData = () => {
     url: "/home/discount"
   })
 }
+
+// 获取推荐数据
+export const getHomeRecommendData = () => {
+  return request.get({
+    url: "/home/hotrecommenddest"
+  })
+}
