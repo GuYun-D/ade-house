@@ -28,3 +28,10 @@ export const getHomeRecommendData = () => {
     url: "/home/hotrecommenddest"
   })
 }
+
+// 获取向往的数据
+export const getgHomeLongForData = () => {
+  return request.get({
+    url: "/home/longfor"
+  })
+}
