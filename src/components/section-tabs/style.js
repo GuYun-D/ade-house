@@ -1,8 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const TabsWrapper = styled.div`
-  display: flex;
-  align-items: center;
 
   .item {
     box-sizing: border-box;
