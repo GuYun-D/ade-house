@@ -1,20 +1,23 @@
 import PropTypes from 'prop-types'
 import React, { memo } from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 import RoomItem from './../../../../components/room-item/index';
 import { EntireRoomWrapper } from './style';
 
 const EntireRoom = memo((props) => {
 
-  const { roomList } = useSelector(state => {
+  const { roomList, isLoading, totalCount } = useSelector(state => {
     return {
-      roomList: state.entire.roomList
+      roomList: state.entire.roomList,
+      isLoading: state.entire.isLoading,
+      totalCount: state.entire.totalCount
     }
-  })
+  }, shallowEqual)
 
   return (
-    <EntireRoomWrapper>
-      <h2 className='title'>共xx处住所</h2>
+    <EntireRoomWrapper >
+      <h2 className='title'>共{totalCount}处住所</h2>
+      {isLoading && <div className="cover"></div>}
       <div className="list">
         {
           roomList.map(item => {

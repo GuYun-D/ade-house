@@ -22,6 +22,7 @@ const EntirePagination = memo((props) => {
 
   //  页码发生变化
   const handlePageSizeChange = (count) => {
+    window.scrollTo(0, 0)
     dispatch(changeCurrentPageAction(count - 1))
     dispatch(fetchRoomListAction(totalCount))
   }
