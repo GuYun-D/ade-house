@@ -8,6 +8,7 @@ const HeaderLeft = memo(() => {
     <LeftWrapper>
       <div className="logo">
         <IconLogo />
+        HUI
       </div>
     </LeftWrapper>
   );
